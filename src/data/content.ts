@@ -26,7 +26,7 @@ On a daily basis, I work within Linux systems to manage and optimize environment
     {
       name: 'CLI Portfolio',
       description: 'An interactive terminal-themed portfolio website built with React and TypeScript.',
-      github: 'https://github.com/noQuli/cli-portfolio',
+      github: 'https://github.com/noQuli/my-portfolio',
       featured: true,
     },
     {
