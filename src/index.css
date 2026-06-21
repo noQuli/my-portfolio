@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+/* Terminal Theme Colors directly in root so they don't get stripped by lightningcss */
+:root {
+  --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+
+  /* Dark theme */
+  --color-terminal-dark-bg: #0d1117;
+  --color-terminal-dark-fg: #c9d1d9;
+  --color-terminal-dark-prompt: #58a6ff;
+  --color-terminal-dark-command: #7ee787;
+  --color-terminal-dark-error: #f85149;
+  --color-terminal-dark-accent: #d2a8ff;
+
+  /* Light theme */
+  --color-terminal-light-bg: #ffffff;
+  --color-terminal-light-fg: #24292f;
+  --color-terminal-light-prompt: #0969da;
+  --color-terminal-light-command: #1a7f37;
+  --color-terminal-light-error: #cf222e;
+  --color-terminal-light-accent: #8250df;
+
+  /* Gruvbox theme */
+  --color-terminal-gruvbox-bg: #282828;
+  --color-terminal-gruvbox-fg: #ebdbb2;
+  --color-terminal-gruvbox-prompt: #b8bb26;
+  --color-terminal-gruvbox-command: #fabd2f;
+  --color-terminal-gruvbox-error: #cc241d;
+  --color-terminal-gruvbox-accent: #d3869b;
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+#root {
+  height: 100dvh; 
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+/* Dark theme */
+.theme-dark {
+  --bg: var(--color-terminal-dark-bg);
+  --fg: var(--color-terminal-dark-fg);
+  --prompt: var(--color-terminal-dark-prompt);
+  --command: var(--color-terminal-dark-command);
+  --error: var(--color-terminal-dark-error);
+  --accent: var(--color-terminal-dark-accent);
+}
+
+/* Light theme */
+.theme-light {
+  --bg: var(--color-terminal-light-bg);
+  --fg: var(--color-terminal-light-fg);
+  --prompt: var(--color-terminal-light-prompt);
+  --command: var(--color-terminal-light-command);
+  --error: var(--color-terminal-light-error);
+  --accent: var(--color-terminal-light-accent);
+}
+
+/* Gruvbox theme (default) */
+.theme-gruvbox {
+  --bg: var(--color-terminal-gruvbox-bg);
+  --fg: var(--color-terminal-gruvbox-fg);
+  --prompt: var(--color-terminal-gruvbox-prompt);
+  --command: var(--color-terminal-gruvbox-command);
+  --error: var(--color-terminal-gruvbox-error);
+  --accent: var(--color-terminal-gruvbox-accent);
+}
+
+/* Terminal container */
+.terminal {
+  flex: 1;
+  min-height: 0;
+  padding: 0.5rem;
+  font-size: 10px;
+  line-height: 1.4;
+  overflow-y: auto;
+  overflow-x: auto;
+  background-color: transparent;
+}
+
+@media (min-width: 640px) {
+  .terminal {
+    padding: 0.75rem;
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 768px) {
+  .terminal {
+    padding: 1rem;
+    font-size: 12px;
+  }
+}
+
+/* Cursor blink animation */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Terminal prompt */
+.prompt {
+  color: var(--prompt);
+  font-weight: bold;
+}
+
+/* Command input */
+.command-input {
+  color: var(--command);
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  caret-color: var(--fg);
+  flex: 1;
+}
+
+/* Error messages */
+.error {
+  color: var(--error);
+}
+
+/* Accent/highlighted text */
+.accent {
+  color: var(--accent);
+}
+
+/* Output line */
+.output-line {
+  margin: 0.25rem 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.terminal-link {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.terminal-link:hover {
+  opacity: 0.85;
+}
+
+/* About Me section in welcome banner */
+.aboutme-section {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  /* Adjust this value to move the section up or down */
+  padding-top: 1rem;
+}
+
+/* Input line container */
+.input-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+/* Scrollbar styling */
+.theme-dark ::-webkit-scrollbar,
+.theme-gruvbox ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.theme-dark ::-webkit-scrollbar-track,
+.theme-gruvbox ::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+.theme-dark ::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 4px;
+}
+.theme-dark ::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
+
+.theme-gruvbox ::-webkit-scrollbar-thumb {
+  background: #504945;
+  border-radius: 4px;
+}
+.theme-gruvbox ::-webkit-scrollbar-thumb:hover {
+  background: #665c54;
+}
