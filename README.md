@@ -1,8 +1,10 @@
 # CLI Portfolio
+![cli_screenshot](./public/cli.png)
 
 An interactive terminal-style portfolio built with React, TypeScript, and Vite.
 
 It presents my profile, projects, CV, skills, and contact details through a command-driven interface inspired by a real shell.
+
 
 ## Features
 
